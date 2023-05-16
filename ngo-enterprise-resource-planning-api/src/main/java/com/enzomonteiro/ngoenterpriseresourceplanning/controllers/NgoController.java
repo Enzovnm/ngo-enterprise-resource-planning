@@ -15,6 +15,7 @@ public class NgoController {
 	@Autowired
 	private NgoService ngoService; 
 	
+	@GetMapping
 	public List<NgoDTO> findAll(){
 		return ngoService.findAll();
 	}

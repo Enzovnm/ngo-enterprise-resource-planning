@@ -29,6 +29,7 @@ public class Ngo {
 	private String registrationNumber;
 	private String site;
 	private String state;
+	private String city;
 	private String postalCode;
 	private String district;
 	private String address;
@@ -143,6 +144,15 @@ public class Ngo {
 		this.state = state;
 	}
 
+	
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	public String getPostalCode() {
 		return postalCode;
