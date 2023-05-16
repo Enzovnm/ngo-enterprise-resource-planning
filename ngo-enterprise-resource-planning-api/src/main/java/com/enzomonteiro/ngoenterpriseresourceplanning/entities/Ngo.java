@@ -2,11 +2,13 @@ package com.enzomonteiro.ngoenterpriseresourceplanning.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tb_ngo")
@@ -15,10 +17,15 @@ public class Ngo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@NotNull
 	private String name;
+	@NotNull
 	private String email;
+	@NotNull
 	private String password;
 	private String imgUrl;
+	@NotNull
+	@Column(unique = true)
 	private String registrationNumber;
 	private String site;
 	private String state;
@@ -39,7 +46,6 @@ public class Ngo {
 	public Ngo(long id, String name, String email, String password, String imgUrl, String registrationNumber,
 			String site, String state, String postalCode, String district, String address, String addressNumber,
 			String addressComplement, String telephone, String description, Boolean status) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
