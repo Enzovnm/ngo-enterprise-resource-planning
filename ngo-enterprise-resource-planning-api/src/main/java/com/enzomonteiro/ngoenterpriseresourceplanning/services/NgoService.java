@@ -4,7 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.enzomonteiro.ngoenterpriseresourceplanning.dto.NgoDTO;
 import com.enzomonteiro.ngoenterpriseresourceplanning.dto.NgoFindAllDTO;
+import com.enzomonteiro.ngoenterpriseresourceplanning.dto.NgoInsertDTO;
 import com.enzomonteiro.ngoenterpriseresourceplanning.entities.Ngo;
 import com.enzomonteiro.ngoenterpriseresourceplanning.repositories.NgoRepository;
 
@@ -19,5 +21,35 @@ public class NgoService {
 		return result.stream().map(x -> new NgoFindAllDTO(x)).toList();
 	}
 	
+	public NgoDTO save(NgoInsertDTO dto) {
+		
+		Ngo ngo = ngoRepository.save(creatingNgo(dto));
+		
+		return new NgoDTO(ngo);
+	}
+	
+	private Ngo creatingNgo(NgoInsertDTO dto) {
+		
+		Ngo obj = new Ngo();
+		obj.setName(dto.getName());
+		obj.setRegistrationNumber(dto.getRegistrationNumber());
+		obj.setEmail(dto.getEmail());
+		obj.setPassword(dto.getPassword());
+		obj.setImgUrl(dto.getImgUrl());
+		obj.setSite(dto.getSite());
+		obj.setState(dto.getState());
+		obj.setCity(dto.getCity());
+		obj.setPostalCode(dto.getPostalCode());
+		obj.setDistrict(dto.getDistrict());
+		obj.setAddress(dto.getAddress());
+		obj.setAddressNumber(dto.getAddressNumber());
+		obj.setAddressComplement(dto.getAddressComplement());
+		obj.setTelephone(dto.getTelephone());
+		obj.setDescription(dto.getDescription());
+		
+		return obj;
+		
+		
+	}
 	
 }
