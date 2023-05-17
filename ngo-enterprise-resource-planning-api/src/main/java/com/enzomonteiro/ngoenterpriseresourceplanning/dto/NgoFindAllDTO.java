@@ -2,7 +2,7 @@ package com.enzomonteiro.ngoenterpriseresourceplanning.dto;
 
 import com.enzomonteiro.ngoenterpriseresourceplanning.entities.Ngo;
 
-public class NgoDTO {
+public class NgoFindAllDTO {
 	
 	private long id;
 	private String name;
@@ -10,7 +10,7 @@ public class NgoDTO {
 	private String description;
 	private Boolean status;
 	
-	public NgoDTO(Ngo entity) {
+	public NgoFindAllDTO(Ngo entity) {
 		this.id = entity.getId();
 		this.name = entity.getName();
 		this.email = entity.getEmail();

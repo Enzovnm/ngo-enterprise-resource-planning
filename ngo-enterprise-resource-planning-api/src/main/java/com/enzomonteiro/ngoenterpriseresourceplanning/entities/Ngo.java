@@ -20,23 +20,32 @@ public class Ngo {
 	@NotNull
 	private String name;
 	@NotNull
+	@Column(unique = true,length = 14)
+	private String registrationNumber;
+	@NotNull
 	private String email;
 	@NotNull
 	private String password;
 	private String imgUrl;
-	@NotNull
-	@Column(unique = true)
-	private String registrationNumber;
 	private String site;
+	@Column(length = 2)
+	@NotNull
 	private String state;
+	@NotNull
 	private String city;
+	@NotNull
+	@Column(length = 8)
 	private String postalCode;
+	@NotNull
 	private String district;
+	@NotNull
 	private String address;
+	@NotNull
 	private String addressNumber;
 	private String addressComplement;
 	private String telephone;
 	private String description;
+	@Column(columnDefinition = "boolean default true")
 	private Boolean status;
 	
 	
