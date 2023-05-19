@@ -23,12 +23,18 @@ public class NgoService {
 	
 	public NgoDTO save(NgoInsertDTO dto) {
 		
-		Ngo ngo = ngoRepository.save(creatingNgo(dto));
+		Ngo existsNgo = ngoRepository.findByEmail(dto.getEmail());
 		
+		if(existsNgo != null) {
+			throw new Error("Já existe um usuário com esse email cadastrado!");
+		}
+		
+		Ngo ngo = ngoRepository.save(createNgoFromDto(dto));
 		return new NgoDTO(ngo);
+		
 	}
 	
-	private Ngo creatingNgo(NgoInsertDTO dto) {
+	private Ngo createNgoFromDto(NgoInsertDTO dto) {
 		
 		Ngo obj = new Ngo();
 		obj.setName(dto.getName());

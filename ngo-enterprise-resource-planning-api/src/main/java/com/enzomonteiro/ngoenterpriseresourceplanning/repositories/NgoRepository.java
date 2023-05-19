@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.enzomonteiro.ngoenterpriseresourceplanning.entities.Ngo;
 
 public interface NgoRepository extends JpaRepository<Ngo,Long> {
+	
+	Ngo findByEmail(String email);
 
 }
