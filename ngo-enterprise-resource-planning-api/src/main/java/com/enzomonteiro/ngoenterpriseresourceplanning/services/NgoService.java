@@ -26,7 +26,11 @@ public class NgoService {
 		Ngo existsNgo = ngoRepository.findByEmail(dto.getEmail());
 		
 		if(existsNgo != null) {
-			throw new Error("Já existe um usuário com esse email cadastrado!");
+			throw new Error("Ngo already exists");
+		}
+		
+		if (dto.getRegistrationNumber().length() != 14) {
+			throw new Error("Registration number is incorrect");
 		}
 		
 		Ngo ngo = ngoRepository.save(createNgoFromDto(dto));
