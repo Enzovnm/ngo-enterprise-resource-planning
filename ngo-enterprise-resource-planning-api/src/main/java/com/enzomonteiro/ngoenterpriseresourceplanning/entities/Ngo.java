@@ -18,7 +18,7 @@ public class Ngo {
 	@NotNull
 	private String name;
 	@NotNull
-	@Column(unique = true,length = 14)
+	@Column(unique = true,columnDefinition = "char(14)")
 	private String registrationNumber;
 	@NotNull
 	private String email;
@@ -26,13 +26,13 @@ public class Ngo {
 	private String password;
 	private String imgUrl;
 	private String site;
-	@Column(length = 2)
 	@NotNull
+	@Column(columnDefinition = "char(2)")
 	private String state;
 	@NotNull
 	private String city;
 	@NotNull
-	@Column(length = 8)
+	@Column(columnDefinition = "char(8)")
 	private String postalCode;
 	@NotNull
 	private String district;
@@ -41,6 +41,7 @@ public class Ngo {
 	@NotNull
 	private String addressNumber;
 	private String addressComplement;
+	@Column(columnDefinition = "char(10)")
 	private String telephone;
 	private String description;
 	@Column(columnDefinition = "boolean default true")
